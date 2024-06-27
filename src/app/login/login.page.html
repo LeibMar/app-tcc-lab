@@ -1,6 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>login</ion-title>
+    <ion-title>Login</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -8,23 +8,25 @@
   <ion-header [translucent]="true">
     <ion-toolbar>
       <ion-title>
-        Login
+        <ion-thumbnail class="thumbnail">
+          <img alt="Silhouette of mountains" src="../../assets/logo.svg" />
+        </ion-thumbnail>
       </ion-title>
     </ion-toolbar>
   </ion-header>
-  
+
   <ion-content [fullscreen]="true">
     <ion-list>
       <ion-item>
-        <ion-label position="floating">Usuário</ion-label>
-        <ion-input [(ngModel)]="usuario" type="text"></ion-input>
+        <ion-label position="floating"></ion-label>
+        <ion-input [(ngModel)]="usuario" type="text" label="Usuário" labelPlacement="floating"></ion-input>
       </ion-item>
       <ion-item>
-        <ion-label position="floating">Senha</ion-label>
-        <ion-input [(ngModel)]="senha" type="password"></ion-input>
+        <ion-label position="floating"></ion-label>
+        <ion-input [(ngModel)]="senha" type="password" label="Senha" labelPlacement="floating"></ion-input>
       </ion-item>
-      <ion-button expand="full" (click)="login()">Login</ion-button>
+      <ion-button expand="full" (click)="login()" color="warning" shape="round">Login</ion-button>
     </ion-list>
   </ion-content>
-  
+
 </ion-content>

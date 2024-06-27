@@ -18,30 +18,36 @@
       </ion-title>
     </ion-toolbar>
   </ion-header>
-  
+
   <ion-list>
     <ion-label>Postagem</ion-label>
     <ion-input [(ngModel)]="postagemDados.postagem"></ion-input>
-    <ion-label>Selecione arquivos (até 4)</ion-label>
-    <input type="file" (change)="onFileSelected($event)" multiple>
-    <ion-button (click)="createOrUpdate()">{{ isEditing ? 'Atualizar' : 'Postar' }}</ion-button>
   </ion-list>
 
-  <ion-list>
+  <ion-card class="card">
+
+    <ion-label>Até 4 arquivos</ion-label>
+    <input type="file" (change)="onFileSelected($event)" multiple>
+    <ion-button (click)="createOrUpdate()">{{ isEditing ? 'Atualizar' : 'Postar' }}</ion-button>
+  </ion-card>
+
+  <ion-list class="postagem">
+    <ion-card>
     <ion-item *ngFor="let postagem of postagens">
       <ion-list>
-        <ion-item>
-          <p>postado por {{ postagem.usuario }} em {{ postagem.dataHora}} </p> 
-           
-          
-        </ion-item>
-        <ion-item>
-          
-          <p>{{ postagem.idPostagem}} {{ postagem.textoPostagem }}</p> 
 
-          <ion-button (click)="editPostagem(postagem)">Editar</ion-button>
+        <ion-item id="info">
+          <p>postado por {{ postagem.usuario }} em {{ postagem.dataHora}} </p>
         </ion-item>
-        <ion-item>
+
+
+        <ion-item class="conteudo">
+
+          <p>{{ postagem.idPostagem}} {{ postagem.textoPostagem }}</p>
+
+        </ion-item>
+
+        <ion-item class="conteudo">
           <div *ngFor="let file of postagem.files">
             <div *ngIf="file.path">
               <ng-container *ngIf="isImage(file.path); else notImage">
@@ -55,7 +61,9 @@
             </div>
           </div>
         </ion-item>
+        <ion-button class="editar" (click)="editPostagem(postagem)">Editar</ion-button>
       </ion-list>
     </ion-item>
+  </ion-card>
   </ion-list>
 </ion-content>
