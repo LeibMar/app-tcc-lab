@@ -2,11 +2,14 @@ ion-content {
     --padding-start: 20px;
     --padding-end: 20px;
     --padding-bottom: 20px;
+   --background: #D9DD4A;
 }
 
 .card {
     line-height: 40px;
+    
 }
+
 
 ion-input {
     border-radius: 10px;
@@ -24,14 +27,10 @@ ion-title {
     color: black;
 }
 
-ion-label {
-    font-weight: bold;
-    color: whitesmoke;
 
-}
 
 ion-input{
-    background-color: #5e5e5e;
+    background-color: #eee4e4;
 }
 
 p {
@@ -48,5 +47,88 @@ p {
 }
 
 #info {
-    --background-color: #5e5e5e;
+    font-weight: bold  ;
+    
 }
+ion-label {
+   font-weight: bold;
+    color: black;
+    margin-left: 5%;
+}
+
+#post {
+    color: white;
+}
+
+#btnpost {
+    margin-left: 33%;
+}
+
+ion-list {
+    border-radius: 5%;
+    ion-card{
+        background-color: grey;
+    }
+}
+
+#cardPost {
+    border-radius: 5%;
+    
+}
+
+
+
+.input {
+    padding-bottom: 22%;
+}
+
+
+
+@media only screen and (min-width: 600px) {
+    img {
+        margin-left: 550px;
+   
+    }
+
+    ion-input {
+        
+        border-radius: 10px;
+        width: 90%;
+        margin-left: 5%;
+    }
+    
+
+    .editar {
+        margin-left: 90%;
+    }
+    #cardPost {
+        border-radius: 2%;
+        
+    }
+    ion-list {
+        border-radius: 1%;
+    }
+
+    #postcard {
+        width: 100%;
+    }
+    ion-list {
+        width: 100%;
+        
+
+    }
+    ion-item {
+        padding-top: 10px;
+    }
+    #postcard {
+        background-color: #D9DD4A;
+    }
+    img {
+        width: 200px;
+        align-content: left;
+    }
+    #btnpost {
+        margin-left: 85%;
+        
+    }
+  }

@@ -13,7 +13,7 @@ export class HomePage {
   postagem: string = '';
   postagens: any = [];
   selectedFiles: any = [];
-  userId: string | null = localStorage.getItem('userId'); // Use userId from localStorage
+  userId: string | null = localStorage.getItem('userId'); // usa o userId do localStorage
   isEditing: boolean = false;
 
   private data = inject(DataService);
@@ -77,8 +77,8 @@ export class HomePage {
       }
       
       console.log(response);
-      this.pegaPostagem(); // Refresh postagens list after creating or updating a new one
-      this.resetForm(); // Reset the form after successful create or update
+      this.pegaPostagem(); // atualiza lista de postagens
+      this.resetForm(); // reseta campo de postagem
     } catch (error) {
       console.log(error);
     }

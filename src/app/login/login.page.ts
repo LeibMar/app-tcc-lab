@@ -25,11 +25,11 @@ export class LoginPage {
         this.router.navigate(['/home']);
       } else {
         console.log(data.message);
-        // Handle login failure
+        // mensagem de erro de login
       }
     } catch (error) {
       console.log(error);
-      // Handle error
+      // mensagem de erro
     }
   }
 }
