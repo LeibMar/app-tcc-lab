@@ -22,6 +22,7 @@ export class LoginPage {
       const data = response.data;
       if (data.success) {
         localStorage.setItem('userId', data.idUsuario);  // Armazena corretamente o idUsuario
+        localStorage.setItem('projetoId', data.idProjeto);  // Armazena corretamente o id do projeto do usuário
         this.router.navigate(['/home']);
       } else {
         console.log(data.message);
