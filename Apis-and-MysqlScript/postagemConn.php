@@ -12,7 +12,8 @@ $postagens = [];
 
 if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $postagem = $_POST['postagem'] ?? '';
-    $idUsuario = $_POST['idUsuario'] ?? '';  
+    $idUsuario = $_POST['idUsuario'] ?? ''; 
+    $idProjeto = $_POST['idProjeto'] ?? '';  
     $fileUrls = [];
     date_default_timezone_set('America/Sao_paulo');
     $dateTime =  date('Y-m-d H:i:s'); 
@@ -38,7 +39,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $id = $_POST['id'];
         $query = "UPDATE postagem SET textoPostagem='$postagem', arquivoPostagem1='$fileUrls[0]', arquivoPostagem2='$fileUrls[1]', arquivoPostagem3='$fileUrls[2]', arquivoPostagem4='$fileUrls[3]', dataHora='$dateTime' WHERE idPostagem='$id' AND idUsuario='$idUsuario'";
     } else {
-        $query = "INSERT INTO postagem (textoPostagem, arquivoPostagem1, arquivoPostagem2, arquivoPostagem3, arquivoPostagem4, idUsuario, dataHora) VALUES ('$postagem', '$fileUrls[0]', '$fileUrls[1]', '$fileUrls[2]', '$fileUrls[3]', '$idUsuario', '$dateTime')";
+        $query = "INSERT INTO postagem (textoPostagem, arquivoPostagem1, arquivoPostagem2, arquivoPostagem3, arquivoPostagem4, idUsuario, idProjeto, dataHora) VALUES ('$postagem', '$fileUrls[0]', '$fileUrls[1]', '$fileUrls[2]', '$fileUrls[3]', '$idUsuario', '$idProjeto', '$dateTime')";
         echo "entrou no looping de postar";
     }
 
@@ -51,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
 
 if ($_SERVER['REQUEST_METHOD'] === "GET") {
     $query = "select 
-postagem.idPostagem,    
+postagem.idProjeto,    
 usuario.usuario,
 postagem.textoPostagem,
 postagem.arquivoPostagem1,

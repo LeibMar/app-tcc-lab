@@ -14,6 +14,7 @@ export class HomePage {
   postagens: any = [];
   selectedFiles: any = [];
   userId: string | null = localStorage.getItem('userId'); // usa o userId do localStorage
+  projetoId: string | null = localStorage.getItem('projetoId'); // usa o projetoId do localStorage
   isEditing: boolean = false;
 
   private data = inject(DataService);
@@ -45,6 +46,9 @@ export class HomePage {
 
     if (this.userId) {
       formData.append('idUsuario', this.userId); // Adiciona o idUsuario ao formData
+    }
+    if (this.projetoId) {
+      formData.append('idProjeto', this.projetoId); // Adiciona o idProjeto ao formData
     }
 
     if (this.postagemDados.id !== null && this.postagemDados.id !== undefined) {
@@ -87,7 +91,8 @@ export class HomePage {
   async pegaPostagem() {
     try {
       const response = await axios.get("https://localhost/postagemConn.php");
-      this.postagens = response.data.map((postagem: any) => {
+      this.postagens = response.data.filter((postagem: any) => postagem.idProjeto === this.projetoId).map((postagem: any) => {
+       
         return {
           ...postagem,
           files: [

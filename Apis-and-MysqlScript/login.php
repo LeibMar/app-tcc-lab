@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
     $senha = $data['senha'] ?? '';
 
     if ($usuario && $senha) {
-        $query = "SELECT idUsuario, usuario FROM usuario WHERE usuario='$usuario' AND senha='$senha'";
+        $query = "SELECT idUsuario, usuario, idProjeto FROM usuario WHERE usuario='$usuario' AND senha='$senha'";
         $result = mysqli_query($conn, $query);
 
         if (mysqli_num_rows($result) > 0) {
@@ -23,7 +23,8 @@ if ($_SERVER['REQUEST_METHOD'] === "POST") {
             echo json_encode([
                 'success' => true,
                 'idUsuario' => $user['idUsuario'],
-                'usuario' => $user['usuario']
+                'usuario' => $user['usuario'],
+                'idProjeto' => $user['idProjeto']
             ]);
         } else {
             echo json_encode(['success' => false, 'message' => 'Credenciais inválidas']);
